@@ -1,15 +1,17 @@
 s = input()
 
-count = 1
+current = s[0]
+count = 0
 ans = ""
 
-for i in range(1, len(s)):
-    if s[i] == s[i - 1]:
+for ch in s:
+    if ch == current:
         count += 1
     else:
-        ans += str(count) + s[i - 1]
+        ans += str(count) + current
+        current = ch
         count = 1
 
-ans += str(count) + s[-1]
+ans += str(count) + current
 
 print(ans)
